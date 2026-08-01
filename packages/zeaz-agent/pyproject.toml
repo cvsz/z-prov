@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zeaz-agent"
+version = "0.1.0a1"
+description = "Provider-neutral ZeaZ agent runtime"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "httpx>=0.28,<1",
+  "pydantic>=2.11,<3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zeaz_agent"]

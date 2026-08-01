@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><title>ZeaZ Chat</title><link rel="stylesheet" href="/assets/styles.css"><link rel="stylesheet" href="/assets/chat.css"></head>
+  <body>
+    <a class="skip-link" href="#chat-main">Skip to content</a>
+    <div class="shell">
+      <header class="topbar"><div class="brand"><a href="/" class="brand"><span class="brand-mark" aria-hidden="true">Z</span><span>ZeaZ <em>Console</em></span></a></div><div class="topbar-actions"><a class="button button-quiet" href="/">Overview</a></div></header>
+      <main id="chat-main" class="chat-page" tabindex="-1">
+        <section class="hero chat-hero"><div><p class="eyebrow">PLAYGROUND / STREAMING</p><h1>One prompt. Three protocols.</h1><p class="hero-copy">Try the same gateway through Anthropic Messages, Chat Completions, or Responses. Keys never reach this page.</p></div></section>
+        <section class="chat-panel" aria-labelledby="composer-title">
+          <div class="section-heading"><div><p class="eyebrow">COMPOSER</p><h2 id="composer-title">Send a message</h2></div><span id="chat-status" class="section-note">Ready</span></div>
+          <form id="chat-form">
+            <div class="form-row"><label>Protocol<select id="protocol"><option value="anthropic">Anthropic Messages</option><option value="chat">OpenAI Chat Completions</option><option value="responses">OpenAI Responses</option></select></label><label>Model<input id="model" required maxlength="256" value="zeaz-claude"></label></div>
+            <label>Prompt<textarea id="prompt" required maxlength="100000" rows="6" placeholder="Ask something useful…"></textarea></label>
+            <div class="form-actions"><span class="muted">Streaming is enabled automatically.</span><button id="send" class="button button-primary" type="submit">Send <span aria-hidden="true">↗</span></button></div>
+          </form>
+        </section>
+        <section class="chat-output" aria-labelledby="output-title"><div class="section-heading"><div><p class="eyebrow">TRANSCRIPT</p><h2 id="output-title">Response</h2></div></div><pre id="output" class="transcript" aria-live="polite">Your response will appear here.</pre></section>
+      </main>
+    </div>
+    <script src="/assets/chat.js" defer></script>
+  </body>
+</html>

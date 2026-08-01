@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ZeaZ provider and route health console">
+    <meta name="color-scheme" content="dark">
+    <title>ZeaZ Console</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">Z</span><span>ZeaZ <em>Console</em></span></div>
+        <div class="topbar-actions"><a class="button button-quiet" href="/chat">Chat</a><a class="button button-quiet" href="/sessions">Sessions</a><span id="last-updated" class="muted">Connecting…</span><button id="refresh" class="button button-quiet" type="button">Refresh</button></div>
+      </header>
+      <main id="main" tabindex="-1">
+        <section class="hero" aria-labelledby="page-title">
+          <div><p class="eyebrow">OPERATIONS / OVERVIEW</p><h1 id="page-title">Provider health at a glance.</h1><p class="hero-copy">A calm, local-first view of your gateway, control plane, and enterprise services.</p></div>
+          <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span><b>LIVE</b></div>
+        </section>
+        <section aria-labelledby="services-title" class="section"><div class="section-heading"><div><p class="eyebrow">SYSTEMS</p><h2 id="services-title">Service health</h2></div><span class="section-note">Auto-refreshes every 30 seconds</span></div><div id="services" class="service-grid" aria-live="polite"><div class="loading-card">Loading service signals…</div></div></section>
+        <section aria-labelledby="models-title" class="section"><div class="section-heading"><div><p class="eyebrow">ROUTING</p><h2 id="models-title">Available models</h2></div><span id="model-count" class="section-note"></span></div><div id="models" class="model-table-wrap"><div class="loading-card">Loading model routes…</div></div></section>
+        <section aria-labelledby="routes-title" class="section"><div class="section-heading"><div><p class="eyebrow">PROVIDER PATHS</p><h2 id="routes-title">Route health</h2></div><span class="section-note">Derived from the gateway registry</span></div><div id="routes" class="service-grid"><div class="loading-card">Loading route signals…</div></div></section>
+      </main>
+      <footer><span>ZeaZ Provider</span><span>Credentials stay server-side · <a href="/health/ready">Readiness</a></span></footer>
+    </div>
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>

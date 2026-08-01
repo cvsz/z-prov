@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zeaz-enterprise"
+version = "0.1.0a1"
+description = "Credential-isolated enterprise control adapters for ZeaZ"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "fastapi>=0.117,<0.118",
+  "httpx>=0.28,<1",
+  "pydantic>=2.11,<3",
+  "uvicorn>=0.35,<1",
+]
+
+[project.scripts]
+zeaz-enterprise = "zeaz_enterprise.main:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zeaz_enterprise"]

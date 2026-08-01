@@ -1,0 +1,15 @@
+[Unit]
+Description=Update ZeaZ Provider from verified release manifest
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=ZEAZ_UPDATE_MANIFEST_URL=@MANIFEST_URL@
+Environment=ZEAZ_UPDATE_SIGNATURE_URL=@SIGNATURE_URL@
+Environment=ZEAZ_UPDATE_PUBLIC_KEY=@PUBLIC_KEY@
+Environment=CONFIRM_UPDATE=yes
+ExecStart=/usr/bin/env bash @UPDATE_SCRIPT@ --apply
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=false

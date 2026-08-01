@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zeaz-sandbox"
+version = "0.1.0a1"
+description = "Isolated execution service contracts and container backend for ZeaZ"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "pydantic>=2.11,<3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zeaz_sandbox"]

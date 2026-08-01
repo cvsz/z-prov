@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling==1.31.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zeaz-infra"
+version = "0.1.0a1"
+description = "Dry-run host capability detection for ZeaZ installation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["pydantic>=2.11,<3"]
+
+[project.scripts]
+zeaz-host-detect = "zeaz_infra.host:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zeaz_infra"]
