@@ -20,6 +20,8 @@ __pycache__
 *.py[cod]
 .pytest_cache
 .ruff_cache
+*.swp
+*.swo
 build
 dist
 *.egg-info
