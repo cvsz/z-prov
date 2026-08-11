@@ -1,0 +1,43 @@
+name: License Check
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+
+jobs:
+  license-check:
+    name: Check License Headers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check license headers
+        run: |
+          echo "Checking for license headers in source files..."
+          # Check Python files
+          if grep -r --include="*.py" -L "MIT License" src/ 2>/dev/null | head -5; then
+            echo "Warning: Some files may be missing license headers"
+          else
+            echo "All Python files have license headers"
+          fi
+          
+          # Check shell scripts
+          if grep -r --include="*.sh" -L "MIT License" scripts/ 2>/dev/null | head -5; then
+            echo "Warning: Some shell scripts may be missing license headers"
+          else
+            echo "All shell scripts have license headers"
+          fi
+
+      - name: Verify LICENSE file exists
+        run: |
+          if [ -f LICENSE ]; then
+            echo "LICENSE file found"
+            head -5 LICENSE
+          else
+            echo "ERROR: LICENSE file not found"
+            exit 1
+          fi

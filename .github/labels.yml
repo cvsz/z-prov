@@ -1,0 +1,110 @@
+# Default labels for ZeaZ Provider
+
+# Priority labels
+name: "priority: critical"
+color: "B60205"
+description: "Critical issue requiring immediate attention"
+
+name: "priority: high"
+color: "D93F0B"
+description: "High priority issue"
+
+name: "priority: medium"
+color: "FBCA04"
+description: "Medium priority issue"
+
+name: "priority: low"
+color: "0E8A16"
+description: "Low priority issue"
+
+# Type labels
+name: "type: bug"
+color: "D93F0B"
+description: "Something isn't working"
+
+name: "type: enhancement"
+color: "84b6eb"
+description: "New feature or request"
+
+name: "type: documentation"
+color: "c5def5"
+description: "Improvements or additions to documentation"
+
+name: "type: performance"
+color: "ff7518"
+description: "Performance improvements"
+
+name: "type: security"
+color: "ee0701"
+description: "Security-related issues"
+
+name: "type: question"
+color: "cc317c"
+description: "Further information is requested"
+
+# Status labels
+name: "status: todo"
+color: "ffffff"
+description: "Issue is in the backlog"
+
+name: "status: in progress"
+color: "fbca04"
+description: "Work is currently in progress"
+
+name: "status: review"
+color: "0e8a16"
+description: "Ready for review"
+
+name: "status: blocked"
+color: "ee0701"
+description: "Blocked by another issue or dependency"
+
+name: "status: needs triage"
+color: "fef2c0"
+description: "Needs to be triaged"
+
+# Component labels
+name: "component: api"
+color: "0075ca"
+description: "API-related issues"
+
+name: "component: container"
+color: "0075ca"
+description: "Docker container and deployment"
+
+name: "component: configuration"
+color: "0075ca"
+description: "Configuration and setup"
+
+name: "component: dependencies"
+color: "0075ca"
+description: "Dependency management"
+
+name: "component: testing"
+color: "0075ca"
+description: "Testing infrastructure"
+
+name: "component: ci-cd"
+color: "0075ca"
+description: "CI/CD pipelines and workflows"
+
+# Contribution labels
+name: "good first issue"
+color: "7057ff"
+description: "Good for newcomers"
+
+name: "help wanted"
+color: "008672"
+description: "Extra attention is needed"
+
+name: "duplicate"
+color: "cfd3d7"
+description: "This issue or pull request already exists"
+
+name: "invalid"
+color: "e4e669"
+description: "This doesn't seem right"
+
+name: "wontfix"
+color: "ffffff"
+description: "This will not be worked on"
