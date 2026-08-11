@@ -1,0 +1,53 @@
+name: Performance Issue
+description: Report a performance problem
+labels: [performance]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a performance issue!
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of ZeaZ Provider are you using?
+      placeholder: e.g., 0.4.0rc1
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment Type
+      description: How is ZeaZ Provider deployed?
+      options:
+        - Native Python
+        - Docker Compose
+        - Kubernetes
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Performance Issue Description
+      description: Describe the performance problem you're experiencing.
+    validations:
+      required: true
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Metrics and Benchmarks
+      description: Include any relevant metrics, response times, or resource usage data.
+      render: shell
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this performance issue?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Details
+      description: Include hardware specs, OS, network configuration, etc.

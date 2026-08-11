@@ -1,0 +1,89 @@
+# Configuration for labeler action
+
+# Documentation changes
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'docs/**/*'
+          - '**/*.md'
+          - '.github/**/*.md'
+
+# CI/CD changes
+ci-cd:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/workflows/**/*'
+          - 'scripts/**/*'
+          - 'Makefile'
+          - 'Dockerfile*'
+          - 'compose.yaml'
+
+# Dependency changes
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'requirements*.lock'
+          - 'requirements*.in'
+          - 'pyproject.toml'
+
+# Test changes
+testing:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'tests/**/*'
+          - '**/test_*.py'
+          - '**/*_test.py'
+
+# Source code changes
+api:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/zeaz_provider/**/*.py'
+
+# Container changes
+container:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'Dockerfile*'
+          - 'deploy/**/*'
+          - 'scripts/bootstrap-host.sh'
+          - 'scripts/install.sh'
+
+# Configuration changes
+configuration:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'config/**/*'
+          - '.env.example'
+          - 'pyproject.toml'
+
+# Package-specific labels
+agent:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/zeaz-agent/**/*'
+
+sandbox:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/zeaz-sandbox/**/*'
+
+control:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/zeaz-control/**/*'
+
+enterprise:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/zeaz-enterprise/**/*'
+
+web:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/zeaz-web/**/*'
+
+infra:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/zeaz-infra/**/*'

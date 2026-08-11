@@ -1,0 +1,42 @@
+name: Documentation Improvement
+description: Suggest improvements or additions to documentation
+labels: [documentation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping to improve our documentation!
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: Documentation Type
+      description: Which type of documentation needs improvement?
+      options:
+        - README.md
+        - API documentation
+        - Configuration guide
+        - Deployment instructions
+        - Troubleshooting guide
+        - Code comments/docstrings
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: current-state
+    attributes:
+      label: Current State
+      description: What is currently missing or unclear?
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: Suggested Improvement
+      description: What changes would you like to see?
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this important?
+      description: Explain why this documentation improvement would be helpful.
