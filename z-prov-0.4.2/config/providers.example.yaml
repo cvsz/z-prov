@@ -1,0 +1,188 @@
+default_model: z-prov-auto
+
+providers:
+  ollama:
+    api: openai
+    base_url: ${OLLAMA_BASE_URL:-http://ollama:11434/v1}
+    api_key: ${OLLAMA_API_KEY:-ollama}
+
+  litellm:
+    api: openai
+    base_url: ${LITELLM_BASE_URL:-http://litellm:4000/v1}
+    api_key: ${LITELLM_API_KEY:-}
+
+  anthropic:
+    api: anthropic
+    base_url: https://api.anthropic.com/v1
+    api_key: ${ANTHROPIC_API_KEY:-}
+    api_version: "2023-06-01"
+
+  openai:
+    api: responses
+    base_url: https://api.openai.com/v1
+    api_key: ${OPENAI_API_KEY:-}
+
+  openrouter:
+    api: openai
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${OPENROUTER_API_KEY:-}
+    headers:
+      HTTP-Referer: ${OPENROUTER_SITE_URL:-https://z-prov.dev}
+      X-Title: Z-Prov
+
+  openrouter-free:
+    enabled: ${FREE_CLOUD_FALLBACK_ENABLED:-false}
+    api: openai
+    base_url: https://openrouter.ai/api/v1
+    api_key: ${OPENROUTER_API_KEY:-}
+    headers:
+      HTTP-Referer: ${OPENROUTER_SITE_URL:-https://z-prov.dev}
+      X-Title: Z-Prov Free Fallback
+
+  gemini-free:
+    enabled: ${FREE_CLOUD_FALLBACK_ENABLED:-false}
+    api: openai
+    base_url: https://generativelanguage.googleapis.com/v1beta/openai
+    api_key: ${GEMINI_API_KEY:-}
+
+  groq-free:
+    enabled: ${FREE_CLOUD_FALLBACK_ENABLED:-false}
+    api: openai
+    base_url: https://api.groq.com/openai/v1
+    api_key: ${GROQ_API_KEY:-}
+
+  gemini:
+    api: openai
+    base_url: https://generativelanguage.googleapis.com/v1beta/openai
+    api_key: ${GEMINI_API_KEY:-}
+
+  azure:
+    api: azure
+    base_url: ${AZURE_OPENAI_BASE_URL:-https://example.openai.azure.com/openai/deployments/example}
+    api_key: ${AZURE_OPENAI_API_KEY:-}
+    api_version: ${AZURE_OPENAI_API_VERSION:-2025-04-01-preview}
+
+  groq:
+    api: openai
+    base_url: https://api.groq.com/openai/v1
+    api_key: ${GROQ_API_KEY:-}
+
+  mistral:
+    api: openai
+    base_url: https://api.mistral.ai/v1
+    api_key: ${MISTRAL_API_KEY:-}
+
+  deepseek:
+    api: openai
+    base_url: https://api.deepseek.com/v1
+    api_key: ${DEEPSEEK_API_KEY:-}
+
+  xai:
+    api: openai
+    base_url: https://api.x.ai/v1
+    api_key: ${XAI_API_KEY:-}
+
+  together:
+    api: openai
+    base_url: https://api.together.xyz/v1
+    api_key: ${TOGETHER_API_KEY:-}
+
+  fireworks:
+    api: openai
+    base_url: https://api.fireworks.ai/inference/v1
+    api_key: ${FIREWORKS_API_KEY:-}
+
+  nvidia:
+    api: openai
+    base_url: https://integrate.api.nvidia.com/v1
+    api_key: ${NVIDIA_API_KEY:-}
+
+  perplexity:
+    api: openai
+    base_url: https://api.perplexity.ai
+    api_key: ${PERPLEXITY_API_KEY:-}
+
+  custom:
+    enabled: ${CUSTOM_PROVIDER_ENABLED:-false}
+    api: openai
+    base_url: ${CUSTOM_PROVIDER_BASE_URL:-http://127.0.0.1:9000/v1}
+    api_key: ${CUSTOM_PROVIDER_API_KEY:-}
+
+models:
+  z-prov-auto:
+    provider: litellm
+    model: z-prov-auto
+    fallbacks:
+      - provider: ollama
+        model: ${Z_PROV_LOCAL_MODEL:-qwen3:8b}
+
+  z-prov-free:
+    provider: ollama
+    model: ${Z_PROV_LOCAL_MODEL:-qwen3:8b}
+    fallbacks:
+      - provider: openrouter-free
+        model: ${OPENROUTER_FREE_MODEL:-openrouter/free}
+      - provider: gemini-free
+        model: ${GEMINI_FREE_MODEL:-gemini-2.5-flash-lite}
+      - provider: groq-free
+        model: ${GROQ_FREE_MODEL:-openai/gpt-oss-20b}
+
+  z-prov-local:
+    provider: ollama
+    model: ${Z_PROV_LOCAL_MODEL:-qwen3:8b}
+
+  z-prov-claude:
+    provider: anthropic
+    model: claude-sonnet-5
+
+  z-prov-codex:
+    provider: openai
+    model: gpt-5.4
+
+  z-prov-openrouter:
+    provider: openrouter
+    model: anthropic/claude-sonnet-5
+
+  z-prov-gemini:
+    provider: gemini
+    model: gemini-2.5-pro
+
+  z-prov-azure:
+    provider: azure
+    model: azure-deployment
+
+  z-prov-groq:
+    provider: groq
+    model: openai/gpt-oss-120b
+
+  z-prov-mistral:
+    provider: mistral
+    model: mistral-large-latest
+
+  z-prov-deepseek:
+    provider: deepseek
+    model: deepseek-chat
+
+  z-prov-xai:
+    provider: xai
+    model: grok-4
+
+  z-prov-together:
+    provider: together
+    model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+
+  z-prov-fireworks:
+    provider: fireworks
+    model: accounts/fireworks/models/llama4-maverick-instruct-basic
+
+  z-prov-nvidia:
+    provider: nvidia
+    model: meta/llama-4-maverick-17b-128e-instruct
+
+  z-prov-perplexity:
+    provider: perplexity
+    model: sonar-pro
+
+  z-prov-custom:
+    provider: custom
+    model: custom-model

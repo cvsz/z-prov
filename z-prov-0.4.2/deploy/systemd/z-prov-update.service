@@ -1,0 +1,13 @@
+[Unit]
+Description=Update Z-Prov from verified release manifest
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=Z_PROV_UPDATE_MANIFEST_URL=@MANIFEST_URL@
+Environment=CONFIRM_UPDATE=yes
+ExecStart=/usr/bin/env bash @UPDATE_SCRIPT@ --apply
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=false
