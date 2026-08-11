@@ -92,22 +92,24 @@ class InMemoryRateLimiter:
         self.window_seconds = window_seconds
         self.clock = clock
         self._events: dict[str, deque[float]] = defaultdict(deque)
-        self._lock = asyncio.Lock()
 
     async def allow(self, bucket: str) -> tuple[bool, int]:
-        async with self._lock:
-            if self.limit <= 0:
-                return True, 0
-            now = self.clock()
-            events = self._events[bucket]
-            cutoff = now - self.window_seconds
-            while events and events[0] <= cutoff:
-                events.popleft()
-            remaining = max(0, self.limit - len(events))
-            if not remaining:
-                return False, 0
-            events.append(now)
-            return True, remaining - 1
+        if self.limit <= 0:
+            return True, 0
+        
+        now = self.clock()
+        events = self._events[bucket]
+        cutoff = now - self.window_seconds
+        
+        while events and events[0] <= cutoff:
+            events.popleft()
+        
+        remaining = max(0, self.limit - len(events))
+        if not remaining:
+            return False, 0
+        
+        events.append(now)
+        return True, remaining - 1
 
     async def close(self) -> None:
         return None
