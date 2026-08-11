@@ -1,9 +1,0 @@
-# Configuration for issue templates
-blank_issues_enabled: true
-contact_links:
-  - name: ZeaZ Provider Support
-    url: https://github.com/zeaz/provider/discussions
-    about: Please ask and answer questions here.
-  - name: Security reports
-    url: mailto:security@zeaz.io
-    about: Please report security vulnerabilities to security@zeaz.io.
